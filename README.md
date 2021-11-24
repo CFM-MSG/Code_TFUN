@@ -1,6 +1,6 @@
-# TFUN: Trilinear Fusion Network for Cross-Modal Recipe Retrieval
+# TFUN: Trilinear Fusion Network for Ternary Image-Text Retrieval
 
-This repository is the **anonymous** Pytorch implementation of the paper: *TFUN: Trilinear Fusion Network for Cross-Modal Recipe Retrieval* 
+This repository is the Pytorch implementation of our work: *TFUN: Trilinear Fusion Network for Ternary Image-Text Retrieval* 
 
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/framework.png)
 
@@ -8,7 +8,11 @@ The proposed TFUN method contains three main procedures: 1) During feature embed
 
 ## Introduction
 
-We propose a novel fusion framework named Trilinear FUsion Network (TFUN) to utilize high-level associations between these three inputs simultaneously and learn an accurate cross-modal similarity function via bi-directional triplet loss explicitly. To reduce the model complexity, we introduce the attention mechanism and tensor decomposition method which making the computation accessible. Furthermore, we also develop a three-stage hard triplet sampling scheme to ensure fast convergence and avoid model collapsed during training.
+Recently, a special type of image-text retrieval task named *Ternary Image-Text Retrieval (TITR)* has drawn increasing attention. In this task, the total inputs of query and target consist of three components, rather than two in the widely-studied retrieval case. The typical TITR scenarios include recipe retrieval (e.g., ingredients text, instructions text and food images) and fashion search (\egs, original images,  text and modified images). 
+
+![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/retrieval_titr.png)
+
+We propose a novel fusion framework named Trilinear FUsion Network (TFUN) for the TITR task, which utilizes high-level associations between these three inputs simultaneously and learn an accurate cross-modal similarity function via bi-directional triplet loss explicitly. To reduce the model complexity, we introduce the attention mechanism and tensor decomposition method which making the computation accessible. Furthermore, we also develop a three-stage hard triplet sampling scheme to ensure fast convergence and avoid model collapsed during training.
 
 ## Installation and Requirements
 
@@ -75,6 +79,8 @@ Top-5 results of recipe-to-image retrieval obtained by our TFUN model. The corre
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/t2i_3.png)
 
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/t2i_4.png)
+
+![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/t2i_fashion.png)
 
 ### 
 

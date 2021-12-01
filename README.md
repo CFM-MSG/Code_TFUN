@@ -60,7 +60,7 @@ test.py
 
 ### Recipe-to-Image retrieval results compared with ACME
 
-We analyze the typical visualized results on Recipe2Image retrieval obtained from our IMHF method and the compared baseline ACME. The correct retrieved image is highlighted in red color.
+We analyze the typical visualized results on recipe-to-image retrieval obtained from our TFUN method and the compared baseline ACME. The correct retrieved image is highlighted in red color.
 
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/comparision1.png)
 
@@ -81,6 +81,10 @@ Top-5 results of recipe-to-image retrieval obtained by our TFUN model. The corre
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/t2i_4.png)
 
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/t2i_fashion.png)
+
+Scalability comparison of our TFUN model and the compared methods.
+
+![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/scalability_new.png)
 
 ### 
 

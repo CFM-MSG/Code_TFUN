@@ -14,7 +14,7 @@ Recently, a particular type of image-text retrieval task named *Ternary Image* *
 
 we propose a novel fusion framework named **T***rilinear* **FU***sion* **N***etwork (TFUN)* to utilize high-level associations between these three inputs simultaneously and learn an accurate cross-modal similarity function via bi-directional triplet loss explicitly, which is generic for the TITR task. To reduce the model complexity, we introduce the advanced method of tensor decomposition to ensure computational efficiency and accessibility. 
 
-![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/retrieval_titr.png)
+![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/triplet.png)
 
 We also propose a three-stage hard negative sampling scheme to use all anchor-positive pairs and only concentrate on mining the hard negative samples. The triplet diagram on the left plots a sample as a dot, the distance between two dots represents the similarity between them. We take an example from the recipe-to-image retrieval task on the right side of the fifigure. 
 

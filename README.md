@@ -4,15 +4,21 @@ This repository is the Pytorch implementation of our work: *TFUN: Trilinear Fusi
 
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/framework.png)
 
-The proposed TFUN method contains three main procedures: 1) During feature embedding, the pre-trained ResNet-50, sentence2vector (S2V) and GRU are utilized to extract embedding of the image, instruction and ingredient respectively; 2) The cross-modal trilinear fusion consisting of attention mechanism and tensor decomposition is used for capturing the interaction between three inputs and learning the similarity score; 3) The similarity score of image-recipe pairs will be selected by our proposed three-stage hard triplet sampling strategy.
+The proposed TFUN method contains three main procedures: 1) During feature embedding, the pre-trained image encoder and text encoder are utilized to extract embedding of three inputs respectively; 2) The trilinear fusion consisting of attention mechanism and tensor decomposition is used for capturing the interaction between three inputs and earning the similarity score; 3) The similarity score of triplet pairs will be selected by our proposed three-stage hard triplet sampling strategy.
 
 ## Introduction
 
-Recently, a special type of image-text retrieval task named *Ternary Image-Text Retrieval (TITR)* has drawn increasing attention. In this task, the total inputs of query and target consist of three components, rather than two in the widely-studied retrieval case. The typical TITR scenarios include recipe retrieval (e.g., ingredients text, instructions text and food images) and fashion search (\egs, original images,  text and modified images). 
+Recently, a particular type of image-text retrieval task named *Ternary Image* *Text Retrieval* (TITR) has drawn increasing attention. In this task, the total inputs of query and target consist of three components, rather than two inputs in the widely-studied retrieval case. The typical TITR scenarios include recipe retrieval (*e.g.*, ingredients text, instructions text and food images) and fashion search (*e.g.*, original images, text and modifified images). 
 
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/retrieval_titr.png)
 
-We propose a novel fusion framework named Trilinear FUsion Network (TFUN) for the TITR task, which utilizes high-level associations between these three inputs simultaneously and learn an accurate cross-modal similarity function via bi-directional triplet loss explicitly. To reduce the model complexity, we introduce the attention mechanism and tensor decomposition method which making the computation accessible. Furthermore, we also develop a three-stage hard triplet sampling scheme to ensure fast convergence and avoid model collapsed during training.
+we propose a novel fusion framework named **T***rilinear* **FU***sion* **N***etwork (TFUN)* to utilize high-level associations between these three inputs simultaneously and learn an accurate cross-modal similarity function via bi-directional triplet loss explicitly, which is generic for the TITR task. To reduce the model complexity, we introduce the advanced method of tensor decomposition to ensure computational efficiency and accessibility. 
+
+![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/retrieval_titr.png)
+
+We also propose a three-stage hard negative sampling scheme to use all anchor-positive pairs and only concentrate on mining the hard negative samples. The triplet diagram on the left plots a sample as a dot, the distance between two dots represents the similarity between them. We take an example from the recipe-to-image retrieval task on the right side of the fifigure. 
+
+
 
 ## Installation and Requirements
 
@@ -56,7 +62,7 @@ test.py
 
 * `--val_num` : size of test set, default=1000.
 
-## Supplementary Visual Results
+## Supplementary Results
 
 ### Recipe-to-Image retrieval results compared with ACME
 
@@ -86,7 +92,22 @@ Scalability comparison of our TFUN model and the compared methods.
 
 ![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/scalability_new.png)
 
-### 
+### The effect of hard negative sampling strategy
+
+![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/comparision2.png)
+
+The effect of the hard negative sampling and the potential ability of our proposed model can be indicated in Table 5. The framework of the TFUN model is specially designed for the TITR task so it is more complex and difficult to train compared to traditional bilinear models. Our TFUN model outperforms some of the traditional methods when trained with basic semi-hard negative samples. Nevertheless, it achieves state-of-the-arts retrieval performance when trained with the proposed three-stage hard negative sampling scheme, which consistently demonstrates the capability of our entire proposed model.
+
+### The effect of adopting BERT as the text encoder instead of LSTM.
+
+![image](https://github.com/CFM-MSG/Code_TFUN/blob/main/img/comparision2.png)
+
+We have conducted additional ablation study to check whether our proposed method can take benefits by using pre-trained text encoder, e.g. BERT.
+
+The results shows that the retrieval performance of our proposed TFUN model improved after adopting BERT in both recipe retrieval task and fashion search task, which show good scalability of our model.
+We believe that's because BERT can capture more latent semantic information.
+
+However, since our TFUN model focuses on the fusion strategy between three inputs, we only use LSTM as the text encoder in the main paper following most of the prior work.
 
 
 
